@@ -3,15 +3,15 @@ const Person = require('../models/Person');
 class PersonController {
     static async create(req, res) {
         try {
-            const { name, lastName, salary } = req.body;
-            if (!name || !lastName || !salary) {
+            const { name, Age } = req.body;
+            if (!name || !Age ) {
                 return res.status(400).json({ message: "Dados inválidos." });
             }
             
             const personData = {
                 name,
-                lastName,
-                salary
+                Age
+                
             };
             const newPerson = await Person.create(personData);
             return res.status(201).json({ message: 'Pessoa criada com sucesso', data: newPerson });
@@ -46,11 +46,11 @@ class PersonController {
     static async update(req, res) {
         try {
             const { id } = req.params;
-            const { name, lastName, salary } = req.body;
+            const { name, age  } = req.body;
             const updatedData = {
                 name,
-                lastName,
-                salary
+                age
+                
             };
             const updatedPerson = await Person.findByIdAndUpdate(id, updatedData, { new: true });
             if (!updatedPerson) {
@@ -61,19 +61,23 @@ class PersonController {
             return res.status(500).json({ message: 'Erro ao atualizar pessoa', error: error.message });
         }
     }
+ static async delete(req, res) {
+  try {
+    const item = await Person.findById(req.params.id);
 
-    static async delete(req, res) {
-        try {
-            const { id } = req.params;
-            const deletedPerson = await Person.findByIdAndDelete(id);
-            if (!deletedPerson) {
-                return res.status(404).json({ message: 'Pessoa não encontrada' });
-            }
-            return res.status(200).json({ message: 'Pessoa deletada com sucesso' });
-        } catch (error) {
-            return res.status(500).json({ message: 'Erro ao deletar pessoa', error: error.message });
-        }
+    if (!item) {
+      return res.status(404).json({ error: "Item não encontrado" });
     }
+
+    item.isActive = false;
+    await item.save();
+
+    return res.status(200).json({ message: "Item desativado" });
+  } catch (error) {
+    return res.status(500).json({ error: "Erro ao deletar item" });
+  }
 }
+}	
+
 
 module.exports = PersonController;
