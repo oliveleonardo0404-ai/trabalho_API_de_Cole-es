@@ -12,5 +12,5 @@ const Items = mongoose.model('Items', {
 });
 
 
-module.exports = Person;
+module.exports = Items;
 
