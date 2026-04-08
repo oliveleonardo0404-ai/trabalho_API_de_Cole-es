@@ -3,9 +3,13 @@ O tema do meu projeto seria de eletrodomestico ele serve para cadastrar pessoas 
 no postman vc coloca
 
 http://localhost:8080/items/items  puxar todos 
+
 http://localhost:8080/items/items  cadastrar
+
 http://localhost:8080/items/items/id aqui vc puxa com base no id
+
 http://localhost:8080/items/items/id para dar update
+
 http://localhost:8080/items/items/id para dar delete 
 
 
