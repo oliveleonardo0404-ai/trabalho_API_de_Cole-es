@@ -1,4 +1,4 @@
-O tema do meu projeto seria de eletrodomestico ele serve para cadastrar pessoas e seus objetos com preço ele tem como vc cadastrar dar update, delete( que seria só desativar ), post e puxar informações
+O tema do meu projeto seria de eletrodomestico ele serve para cadastrar pessoas e seus objetos com preço ele tem como vc dar update, delete( que seria só desativar ), post e puxar informações
 
 no postman vc coloca
 
