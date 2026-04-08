@@ -1,6 +1,7 @@
 O tema do meu projeto seria de eletrodomestico ele serve para cadastrar pessoas e seus objetos com preço ele tem como vc cadastrar dar update, delete( que seria só desativar ), post e puxar informações
 
 no postman vc coloca
+
 http://localhost:8080/items/items  puxar todos 
 http://localhost:8080/items/items  cadastrar
 http://localhost:8080/items/items/id aqui vc puxa com base no id
